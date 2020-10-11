@@ -1,13 +1,13 @@
 package LinkedList
 
 //链表,大写,json
-type ListNode struct {
+type listNode struct {
 	Value int       `json:"val"`
-	Next  *ListNode `json:"next"`
+	Next  *listNode `json:"next"`
 }
 type MyLinkedList struct {
-	head *ListNode
-	tail *ListNode
+	head *listNode
+	tail *listNode
 	lens int
 }
 
@@ -38,7 +38,7 @@ func (this *MyLinkedList) AddAtHead(val int) {
 	this = &head
 	**/
 
-	this.head = &ListNode{
+	this.head = &listNode{
 		Value: val,
 		Next:  this.head,
 	}
@@ -51,13 +51,13 @@ func (this *MyLinkedList) AddAtHead(val int) {
 /** Append a node of value val to the last element of the linked list. */
 func (this *MyLinkedList) AddAtTail(val int) {
 	if this.lens == 0 {
-		this.tail = &ListNode{
+		this.tail = &listNode{
 			Value: val,
 			Next:  nil,
 		}
 		this.head = this.tail
 	} else {
-		this.tail.Next = &ListNode{
+		this.tail.Next = &listNode{
 			Value: val,
 			Next:  nil,
 		}
@@ -83,7 +83,7 @@ func (this *MyLinkedList) AddAtIndex(index int, val int) {
 	for i := 1; i < index; i++ {
 		head = head.Next
 	}
-	head.Next = &ListNode{
+	head.Next = &listNode{
 		Value: val,
 		Next:  head.Next,
 	}
