@@ -28,3 +28,21 @@ func swapPairs(head *ListNode) *ListNode {
 	tmp.Next = head
 	return tmp
 }
+
+//迭代版本
+func swapPairs2(head *ListNode) *ListNode {
+	dummy := &ListNode{}
+	dummy.Next = head
+	tmp := dummy
+
+	for tmp.Next != nil && tmp.Next.Next != nil {
+		start := tmp.Next
+		end := tmp.Next.Next
+		//注意这一步
+		tmp.Next = end
+		start.Next = end.Next
+		end.Next = start
+		tmp = start
+	}
+	return dummy.Next
+}
