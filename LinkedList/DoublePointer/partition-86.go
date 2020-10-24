@@ -1,4 +1,6 @@
-package LinkedList
+package DoublePointer
+
+import "leetocde_solution/LinkedList"
 
 /**
  * Definition for singly-linked list.
@@ -23,12 +25,12 @@ package LinkedList
 */
 //遍历原链表，用了一个队列存储所有大于x的元素
 //如果小于x则直接插入新链表中，直到遍历完成在遍历队列拼接元素即可
-func Partition(head *ListNode, x int) *ListNode {
+func Partition(head *LinkedList.ListNode, x int) *LinkedList.ListNode {
 
 	if head == nil {
 		return nil
 	}
-	dummy := &ListNode{}
+	dummy := &LinkedList.ListNode{}
 	curr := dummy
 	var q []int
 	for head != nil {
@@ -41,7 +43,7 @@ func Partition(head *ListNode, x int) *ListNode {
 		head = head.Next
 	}
 	for _, value := range q {
-		curr.Next = &ListNode{
+		curr.Next = &LinkedList.ListNode{
 			Val:  value,
 			Next: nil,
 		}
@@ -52,8 +54,8 @@ func Partition(head *ListNode, x int) *ListNode {
 }
 
 //维持两个链表两个指针
-func partition2(head *ListNode, x int) *ListNode {
-	before_head, after_head := &ListNode{}, &ListNode{}
+func partition2(head *LinkedList.ListNode, x int) *LinkedList.ListNode {
+	before_head, after_head := &LinkedList.ListNode{}, &LinkedList.ListNode{}
 	before, after := before_head, after_head
 
 	for head != nil {

@@ -1,4 +1,6 @@
-package LinkedList
+package DoublePointer
+
+import "leetocde_solution/LinkedList"
 
 /**
  * Definition for singly-linked list.
@@ -29,7 +31,7 @@ package LinkedList
 //对后半段节点反转
 //对比反转后的和head开始即可
 
-func isPalindrome(head *ListNode) bool {
+func isPalindrome(head *LinkedList.ListNode) bool {
 	if head == nil {
 		return true
 	}
@@ -52,9 +54,9 @@ func isPalindrome(head *ListNode) bool {
 
 }
 
-func reverse(node *ListNode) *ListNode {
-	var pre *ListNode
-	next := &ListNode{}
+func reverse(node *LinkedList.ListNode) *LinkedList.ListNode {
+	var pre *LinkedList.ListNode
+	next := &LinkedList.ListNode{}
 	for node != nil {
 		next = node.Next
 		node.Next = pre

@@ -1,4 +1,6 @@
-package LinkedList
+package DoublePointer
+
+import "leetocde_solution/LinkedList"
 
 /**
  * Definition for singly-linked list.
@@ -8,12 +10,12 @@ package LinkedList
  * }
  */
 //反转指定位置的链表内容
-func ReverseBetween(head *ListNode, m int, n int) *ListNode {
+func ReverseBetween(head *LinkedList.ListNode, m int, n int) *LinkedList.ListNode {
 	if head == nil {
 		return nil
 	}
 	cur := head
-	var prev *ListNode
+	var prev *LinkedList.ListNode
 
 	//head作为前一个值
 	for m > 1 {
@@ -27,7 +29,7 @@ func ReverseBetween(head *ListNode, m int, n int) *ListNode {
 	tail := cur
 
 	//反转的链表起始点
-	var third *ListNode
+	var third *LinkedList.ListNode
 	for n > 0 {
 		third = cur.Next
 		cur.Next = prev

@@ -1,4 +1,6 @@
-package LinkedList
+package DoublePointer
+
+import "leetocde_solution/LinkedList"
 
 //https://leetcode-cn.com/problems/middle-of-the-linked-list/
 //https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/kuai-man-zhi-zhen-zhu-yao-zai-yu-diao-shi-by-liwei/
@@ -12,7 +14,7 @@ package LinkedList
  */
 //快慢指针
 
-func MiddleNode(head *ListNode) *ListNode {
+func MiddleNode(head *LinkedList.ListNode) *LinkedList.ListNode {
 	var fast, slow = head, head
 
 	for fast != nil && fast.Next != nil {
