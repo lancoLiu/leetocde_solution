@@ -27,7 +27,7 @@ func dfs(root *TreeNode) {
 /**
 
      1
-   2
+   2    7
   3
     4
   5    6
