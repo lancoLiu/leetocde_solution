@@ -18,6 +18,9 @@ null	3
 		null 5
 			null 6
 再上图中最小深度不是1，我一开始以为是2->null的路径，但是2还有右边的子节点，所以他不是叶子结点
+https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/solution/111-er-cha-shu-de-zui-xiao-shen-du-di-gui-die-dai-/
+为什么会犯这个错误，加入left==nil,right!=nil
+说明最小深度是min(depth(right))+1
 
 */
 
