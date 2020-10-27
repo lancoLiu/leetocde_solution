@@ -44,10 +44,10 @@ func InorderTraversal2(root *TreeNode) []int {
 			stack = append(stack, root) //入栈
 			root = root.Left            //移至最左
 		}
-		index := len(stack) - 1             //栈顶
-		res = append(res, stack[index].Val) //中序输出
-		root = stack[index].Right           //右节点会进入下次循环，如果 =nil，继续出栈
-		stack = stack[:index]               //出栈
+		curr := stack[len(stack)-1]
+		res = append(res, curr.Val)  //中序输出
+		root = curr.Right            //右节点会进入下次循环，如果 =nil，继续出栈
+		stack = stack[:len(stack)-1] //出栈
 	}
 	return res
 }

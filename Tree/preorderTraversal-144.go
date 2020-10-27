@@ -21,20 +21,26 @@ func dfsPreorder(root *TreeNode) {
 
 }
 
-//迭代解法P
+//迭代解法
+//中左右
 func PreorderTraversal2(root *TreeNode) []int {
+	if root == nil {
+		return []int{}
+	}
 	var res []int
 	var stack []*TreeNode
+	stack = append(stack, root)
+	for len(stack) > 0 {
+		curr := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		res = append(res, curr.Val) //前序输出
 
-	for 0 < len(stack) || root != nil { //root != nil 只为了第一次root判断，必须放最后
-		for root != nil {
-			res = append(res, root.Val)       //前序输出
-			stack = append(stack, root.Right) //右节点 入栈
-			root = root.Left                  //移至最左
+		if curr.Right != nil {
+			stack = append(stack, curr.Right)
 		}
-		index := len(stack) - 1 //栈顶
-		root = stack[index]     //出栈
-		stack = stack[:index]
+		if curr.Left != nil {
+			stack = append(stack, curr.Left)
+		}
 	}
 	return res
 }

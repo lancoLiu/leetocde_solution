@@ -9,5 +9,5 @@ package Tree
  * }
  */
 func invertTree(root *TreeNode) *TreeNode {
-
+	return nil
 }
