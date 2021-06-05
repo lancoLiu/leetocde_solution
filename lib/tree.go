@@ -1,6 +1,5 @@
-package Tree
+package lib
 
-//二叉树
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
