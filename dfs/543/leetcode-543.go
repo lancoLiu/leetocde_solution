@@ -11,7 +11,7 @@ func diameterOfBinaryTree(root *lib.TreeNode) int {
 	dfs(root)
 	return maxV - 1
 }
-func dfs(root *TreeNode) int {
+func dfs(root *lib.TreeNode) int {
 	if root == nil {
 		return 0
 	}
