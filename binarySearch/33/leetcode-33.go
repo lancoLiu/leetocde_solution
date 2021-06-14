@@ -10,7 +10,7 @@ func search(nums []int, target int) int {
 		if nums[mid] == target {
 			return mid
 		}
-		//[l,mid]是有序的
+		//[l,mid]是有序的,必须用等于在[3,1]；target为1情况下，mid和l下标一样，就进不去第一个逻辑
 		if nums[mid] >= nums[l] {
 			//target在[l,mid)范围内
 			if target >= nums[l] && target < nums[mid] {
