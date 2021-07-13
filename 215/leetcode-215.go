@@ -57,6 +57,47 @@ func partition(a []int, l, r int) int {
 //-----------------------------------------------------
 
 //优先队列思想
-//func findKthLargest2(nums []int, k int) int {
+func findKthLargest2(nums []int, k int) int {
+	heapSize := len(nums)
+	buildMaxHeap(nums, heapSize)
+	//开始寻找第K大的值
+	for i := heapSize - 1; i > len(nums)-k; i-- {
+		nums[i], nums[0] = nums[0], nums[i]
+		heapSize--
+		maxHeapify(nums, 0, heapSize)
+	}
+	return nums[0]
 
-//}
+}
+
+//创建一个大根堆
+func buildMaxHeap(a []int, heapSize int) {
+	//i起始值为heapSize/2 - 1
+	for i := heapSize/2 - 1; i >= 0; i-- {
+		maxHeapify(a, i, heapSize)
+	}
+}
+
+//堆调整
+func maxHeapify(a []int, rootIndex, heapSize int) {
+	l, r, largest := rootIndex*2+1, rootIndex*2+2, rootIndex
+	if l < heapSize && a[l] > a[largest] {
+		largest = l
+	}
+	if r < heapSize && a[r] > a[largest] {
+		largest = r
+	}
+	//当前节点不等于largest了，说明上述有交换值
+	if largest != rootIndex {
+		//开始将rootIndex的值与左右值较大那个交换
+		a[rootIndex], a[largest] = a[largest], a[rootIndex]
+		//继续调整
+		maxHeapify(a, largest, heapSize)
+	}
+
+}
+
+func main() {
+	a := []int{2, 3, 1}
+	findKthLargest2(a, 2)
+}
