@@ -9,6 +9,10 @@ type ListNode struct {
 
 //进阶：你能尝试使用一趟扫描实现吗？
 //[1,2] => 1
+//链表中结点的数目为 sz
+//1 <= sz <= 30
+//0 <= Node.val <= 100
+//1 <= n <= sz
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	if head == nil {
 		return nil
@@ -27,6 +31,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		fast = fast.Next
 		slow = slow.Next
 	}
+	//当情况为[1]=>1时候
 	slow.Next = slow.Next.Next
 
 	return dummy.Next
