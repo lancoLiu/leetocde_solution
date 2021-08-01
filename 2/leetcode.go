@@ -10,7 +10,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := &ListNode{}
 	res := dummy
 
-	for l1 != nil || l2 != nil || carry !=  0 {
+	for l1 != nil || l2 != nil || carry != 0 {
 		if l1 != nil {
 			carry += l1.Val
 			l1 = l1.Next
@@ -21,17 +21,16 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 
 		tmp := &ListNode{
-			Val: carry % 10,
+			Val:  carry % 10,
 			Next: nil,
 		}
 		res.Next = tmp
 		res = res.Next
-		carry /=  10
+		carry /= 10
 
 	}
 	return dummy.Next
 }
-返回该题
 
 func main() {
 	l1 := &ListNode{
